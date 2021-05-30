@@ -1,0 +1,12 @@
+{
+  "name": "delightree_chat_app",
+  "displayName": "delightree_chat_app",
+  "expo": {
+    "name": "delightree_chat_app",
+    "slug": "delightree_chat_app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
