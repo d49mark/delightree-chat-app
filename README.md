@@ -1,2 +1,2 @@
 # delightree-chat-app
-![]("src/Demo/demo.gif" | width=100)
+![](src/Demo/demo.gif =100x100)
