@@ -4,6 +4,6 @@
 # Chat Application using React Native and Redux
 
 ## Run App
-#### cd to Project Directory
-#### yarn
-#### npx react-native run-android
+#### `cd to Project Directory`
+#### `yarn`
+#### `npx react-native run-android`
