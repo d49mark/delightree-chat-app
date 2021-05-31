@@ -1,3 +1,2 @@
 # delightree-chat-app
-![](src/Demo/demo.gif)
-<img src="src/Demo/demo.gif" width="200" height="400" />
+<img src="src/Demo/demo.gif" width="300" height="400" />
