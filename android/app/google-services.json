@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "967676381215",
+    "project_id": "chatapp-a59e5",
+    "storage_bucket": "chatapp-a59e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967676381215:android:1bb02ee35dc5734483ad2a",
+        "android_client_info": {
+          "package_name": "com.delightreechatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "967676381215-02e19u54tc1gukksvmuh4au7u4gmhus7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtKN4KAtn3ON1IfcrChYO9CbvvxzradNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "967676381215-02e19u54tc1gukksvmuh4au7u4gmhus7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
