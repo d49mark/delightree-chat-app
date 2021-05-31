@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Row, Image, View, Subtitle, Caption, Heading } from "@shoutem/ui";
+import React from "react";
+import { Row, Image, View, Caption } from "@shoutem/ui";
 import moment from "moment";
-import { FlatList, Text } from "react-native";
+import { FlatList, Text, StyleSheet } from "react-native";
 const isBase64 = (str) => {
   if (str === "" || str.trim() === "") {
     return false;
@@ -25,7 +25,9 @@ const Message = ({ msg }) => {
             <Caption>{moment(msg?.time).from(Date.now())}</Caption>
           </View>
           <Image
-            style={{ width: 200, height: 200 }}
+            resizeMethod={"scale"}
+            resizeMode={"contain"}
+            style={styles.image}
             source={{ uri: `data:image/jpeg;base64,${msg?.text}` }}
           />
         </View>
@@ -57,5 +59,10 @@ const MessageList = ({ messages, onLayout }) => (
     onLayout={onLayout}
   />
 );
-
+const styles = StyleSheet.create({
+  image: {
+    width: 200,
+    height: 200,
+  },
+});
 export default MessageList;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ReactNative from "react-native";
 
-import { View, Title, Screen } from "@shoutem/ui";
+import { Title, Screen } from "@shoutem/ui";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { launchImageLibrary } from "react-native-image-picker";
 
@@ -90,18 +90,15 @@ class ChatUI extends Component {
 
     launchImageLibrary(options, (response) => {
       if (response.didCancel) {
-        console.log("User cancelled photo picker");
         ReactNative.Alert.alert("You did not select any image");
       } else if (response.error) {
-        console.log("ImagePicker Error: ", response.error);
+        ReactNative.Alert.alert("Unexpected error occurred. Please retry");
       } else if (response.customButton) {
         console.log("User tapped custom button: ", response.customButton);
       } else {
-        let source = { uri: response.uri };
         this.props.dispatch(
           sendMessage(response.assets[0].base64, this.props.user)
         );
-        console.log(response.assets[0].base64);
       }
     });
   }

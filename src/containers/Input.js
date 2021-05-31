@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { Button, TextInput } from "@shoutem/ui";
-import { View, Text } from "react-native";
+import { StyleSheet } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 class Input extends Component {
   state = {
@@ -47,13 +48,9 @@ class Input extends Component {
     const { attachButton, onPressAttach } = this.props;
     if (attachButton) {
       return (
-        <View
-          style={{
-            flexDirection: "row",
-            //justifyContent: "space-between",
-          }}
-        >
+        <React.Fragment>
           <TextInput
+            style={styles.textInput}
             placeholder={this.props.placeholder}
             onChangeText={this.onChangeText}
             onSubmitEditing={this.onSubmitEditing}
@@ -62,10 +59,14 @@ class Input extends Component {
             onFocus={this.onFocus}
             onBlur={this.onBlur}
           />
-          <Button onPress={onPressAttach} styleName="light">
-            <Text>Attach file</Text>
+          <Button
+            onPress={onPressAttach}
+            styleName="light"
+            style={styles.attachButton}
+          >
+            <Icon name="attach" size={30} color="black" />
           </Button>
-        </View>
+        </React.Fragment>
       );
     }
     return (
@@ -81,5 +82,15 @@ class Input extends Component {
     );
   }
 }
-
+const styles = StyleSheet.create({
+  attachButton: {
+    position: "absolute",
+    bottom: 10,
+    right: 10,
+  },
+  textInput: {
+    maxHeight: 80,
+    width: "100%",
+  },
+});
 export default connect()(Input);
