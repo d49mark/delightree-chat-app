@@ -4,6 +4,7 @@ import ReactNative from "react-native";
 
 import { View, Title, Screen } from "@shoutem/ui";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { launchImageLibrary } from "react-native-image-picker";
 
 import Messages from "../containers/Messages";
 import Input from "../containers/Input";
@@ -19,7 +20,11 @@ class ChatUI extends Component {
     scrollViewHeight: 0,
     inputHeight: 0,
   };
-
+  constructor(props) {
+    super(props);
+    this.onPressAttach = this.onPressAttach.bind(this);
+    this.isBase64 = this.isBase64.bind(this);
+  }
   componentDidMount() {
     this.scrollToBottom(false);
   }
@@ -62,7 +67,44 @@ class ChatUI extends Component {
   sendMessage = (text) => {
     return sendMessage(text, this.props.user);
   };
+  isBase64 = (str) => {
+    if (str === "" || str.trim() === "") {
+      return false;
+    }
+    var base64regex =
+      /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
 
+    return base64regex.test(str);
+  };
+
+  onPressAttach() {
+    let options = {
+      title: "You can choose one image",
+      maxWidth: 256,
+      maxHeight: 256,
+      storageOptions: {
+        skipBackup: true,
+      },
+      includeBase64: true,
+    };
+
+    launchImageLibrary(options, (response) => {
+      if (response.didCancel) {
+        console.log("User cancelled photo picker");
+        ReactNative.Alert.alert("You did not select any image");
+      } else if (response.error) {
+        console.log("ImagePicker Error: ", response.error);
+      } else if (response.customButton) {
+        console.log("User tapped custom button: ", response.customButton);
+      } else {
+        let source = { uri: response.uri };
+        this.props.dispatch(
+          sendMessage(response.assets[0].base64, this.props.user)
+        );
+        console.log(response.assets[0].base64);
+      }
+    });
+  }
   render() {
     return (
       <Screen>
@@ -76,6 +118,8 @@ class ChatUI extends Component {
           <Messages />
         </KeyboardAwareScrollView>
         <Input
+          onPressAttach={this.onPressAttach}
+          attachButton={true}
           onLayout={this.onInputLayout}
           onFocus={this._scrollToInput.bind(this)}
           submitAction={this.sendMessage}

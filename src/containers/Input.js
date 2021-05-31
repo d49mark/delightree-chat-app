@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { TextInput } from "@shoutem/ui";
+import { Button, TextInput } from "@shoutem/ui";
+import { View, Text } from "react-native";
 
 class Input extends Component {
   state = {
@@ -43,6 +44,30 @@ class Input extends Component {
   };
 
   render() {
+    const { attachButton, onPressAttach } = this.props;
+    if (attachButton) {
+      return (
+        <View
+          style={{
+            flexDirection: "row",
+            //justifyContent: "space-between",
+          }}
+        >
+          <TextInput
+            placeholder={this.props.placeholder}
+            onChangeText={this.onChangeText}
+            onSubmitEditing={this.onSubmitEditing}
+            onLayout={this.onLayout}
+            value={this.state.text}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+          />
+          <Button onPress={onPressAttach} styleName="light">
+            <Text>Attach file</Text>
+          </Button>
+        </View>
+      );
+    }
     return (
       <TextInput
         placeholder={this.props.placeholder}
