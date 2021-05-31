@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Button, Text } from "@shoutem/ui";
 import { login } from "../actions";
 
+// UI login button
 class LoginButton extends Component {
   onLogin = () => {
     this.props.dispatch(login());

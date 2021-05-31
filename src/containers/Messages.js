@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
   messages: state.chatroom.messages,
   isFetching: state.chatroom.meta.isFetching,
 });
-
+// load messages
 const Messages = connect(mapStateToProps)(
   ({ messages, isFetching, dispatch }) => {
     if (isFetching) {

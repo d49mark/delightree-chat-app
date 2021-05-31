@@ -1,6 +1,6 @@
 import firebase from "../firebase";
 import DeviceInfo from "react-native-device-info";
-import { Platform } from "react-native";
+//API calls and setting in store
 
 export const addMessage = (msg) => ({
   type: "ADD_MESSAGE",

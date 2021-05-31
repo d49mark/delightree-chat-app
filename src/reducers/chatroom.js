@@ -7,7 +7,7 @@ const initialState = {
   lastFetched: null,
   height: 0,
 };
-
+// update message list too whiel sending them
 const meta = (state = initialState, action) => {
   switch (action.type) {
     case "START_FETCHING_MESSAGES":

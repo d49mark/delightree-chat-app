@@ -5,7 +5,7 @@ const initialState = {
   authorizing: false,
   authorized: false,
 };
-
+// user reducer and data set in store
 const user = (state = initialState, action) => {
   switch (action.type) {
     case "SET_USER_NAME":

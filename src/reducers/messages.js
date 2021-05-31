@@ -11,7 +11,7 @@ const message = (state, action) => {
       return state;
   }
 };
-
+// send messages to firebase as well as add them too
 const messages = (state = [], action) => {
   switch (action.type) {
     case "ADD_MESSAGE":

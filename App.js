@@ -15,11 +15,9 @@ const store = createStore(
   rootReducer,
   applyMiddleware(
     thunkMiddleware
-    //loggerMiddleware
+    //loggerMiddleware //currently not needed
   )
 );
-
-import { Examples } from "@shoutem/ui";
 
 const LoginOrChat = connect((state) => ({
   authorized: state.user.authorized,
