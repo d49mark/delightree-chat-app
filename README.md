@@ -1,2 +1,2 @@
 # delightree-chat-app
-![]<img src={require("src/Demo/demo.gif")} alt="Your image title" width="250"/>
+![]("src/Demo/demo.gif" =100x100)
